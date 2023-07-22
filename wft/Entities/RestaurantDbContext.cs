@@ -26,6 +26,16 @@ namespace wft.Entities
               Property(r => r.Name)
               .IsRequired();
 
+            modelBuilder.Entity<Address>()
+                .Property(a=>a.Street)
+                .IsRequired()
+                .HasMaxLength(55);
+
+            modelBuilder.Entity<Address>()
+                .Property(a => a.City)
+                .IsRequired()
+                .HasMaxLength(55);
+
         }
         //Metoda onConfiguring: w tej metodzie możemy precyzować jakiego typu bazy danych chcemy definiować
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
